@@ -1,6 +1,8 @@
-function ResultantServingsAndPriceForRequiredProteins(priceAsGivenInWebsite, servingsAsGivenInWebsite, proteinsPerServingAsGivenInWebsite, requiredProteins /*= 24*/){
-	requiredProteins = requiredProteins || 24;
-   var r = servingsAsGivenInWebsite * proteinsPerServingAsGivenInWebsite / requiredProteins;
-   var pricePerServing = priceAsGivenInWebsite/r;
-   return JSON.stringify({resultantServings:r, pricePerServing: pricePerServing},0 ,4);
+function ResultantServingsAndPriceForRequiredProteins(priceAsGivenInWebsite, servingsAsGivenInWebsite, proteinsPerServingAsGivenInWebsite, requiredProteins = 24){
+   const servingsAmount = (servingsAsGivenInWebsite * proteinsPerServingAsGivenInWebsite) / requiredProteins;
+   const pricePerServing = priceAsGivenInWebsite / servingsAmount;
+   return {
+	   resultantServings: servingsAmount, 
+	   pricePerServing: pricePerServing
+   };
 }
